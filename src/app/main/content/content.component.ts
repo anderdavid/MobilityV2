@@ -4,6 +4,8 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ListUsersComponent } from '../../users/list-users/list-users.component';
 import { CreateUsersComponent } from '../../users/create-users/create-users.component';
+import { EditUserComponent } from '../../users/edit-user/edit-user.component';
+import { DetailUserComponent } from '../../users/detail-user/detail-user.component';
 import { ForgotPasswordComponent } from '../../users/forgot-password/forgot-password.component';
 
 @Component({
@@ -16,6 +18,8 @@ import { ForgotPasswordComponent } from '../../users/forgot-password/forgot-pass
     ListUsersComponent,
     CreateUsersComponent,
     ForgotPasswordComponent,
+    EditUserComponent,
+    DetailUserComponent,
   ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css',
