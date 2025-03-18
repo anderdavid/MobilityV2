@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -20,6 +21,7 @@ import { ForgotPasswordComponent } from '../../users/forgot-password/forgot-pass
     ForgotPasswordComponent,
     EditUserComponent,
     DetailUserComponent,
+    RouterOutlet,
   ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css',
