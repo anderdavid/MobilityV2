@@ -13,15 +13,15 @@ import { ColumnI } from '../../main/components/table/table.interface';
 export class ListUsersComponent implements OnInit {
   mFakeData = fakeData;
   columns: ColumnI[] = [
-    { title: 'Nombre', data: 'name' },
-    { title: 'Apellido', data: 'lastName' },
-    { title: 'Fecha de Nacimiento', data: 'dateOfBirth' },
-    { title: 'Edad', data: 'age' },
-    { title: 'Genero', data: 'gendre' },
-    { title: 'Ciudad', data: 'city' },
-    { title: 'Departamento', data: 'department' },
-    { title: 'Login', data: 'username' },
-    { title: 'Correo', data: 'email' },
+    { title: 'Nombre', data: 'name', width: '160px' },
+    { title: 'Apellido', data: 'lastName', width: '160px' },
+    { title: 'Fecha de Nacimiento', data: 'dateOfBirth', width: '200px' },
+    { title: 'Edad', data: 'age', width: '40px' },
+    { title: 'Genero', data: 'gendre', width: '40px' },
+    { title: 'Ciudad', data: 'city', width: '80px' },
+    { title: 'Departamento', data: 'department', width: '60px' },
+    { title: 'Login', data: 'username', width: '160px' },
+    { title: 'Correo', data: 'email', width: '160px' },
   ];
 
   constructor() {}

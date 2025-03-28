@@ -1,14 +1,28 @@
-<table>
-  <thead>
-    <tr>
-      <th *ngFor="let column of columns">{{ column.title }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of items">
-      <td *ngFor="let column of columns">
-        {{ item[column.data] }}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-table">
+  <div class="row-table">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th
+            *ngFor="let column of columns"
+            [ngStyle]="{ minWidth: column.width }"
+          >
+            {{ column.title }}
+          </th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td
+            *ngFor="let column of columns"
+            [ngStyle]="{ minWidth: column.width }"
+          >
+            {{ item[column.data] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagers-container">1 2 3 4</div>
+</div>

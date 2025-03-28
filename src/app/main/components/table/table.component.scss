@@ -1,1 +1,41 @@
+.container-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+table {
+  background-color: #fdffff;
+  width: 1160px;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+
+  th,
+  td {
+    text-align: left;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    line-height: 15px;
+  }
+  th {
+    font-size: 14px;
+  }
+  td {
+    font-size: 12px;
+  }
+
+  thead,
+  tr {
+    height: 39px;
+  }
+  thead {
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-color: #ebebeb;
+  }
+  tr {
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-color: #f8f6f6;
+  }
+}
