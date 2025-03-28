@@ -8,7 +8,7 @@ import { ColumnI } from '../../main/components/table/table.interface';
   standalone: true,
   imports: [TableComponent],
   templateUrl: './list-users.component.html',
-  styleUrl: './list-users.component.css',
+  styleUrl: './list-users.component.scss',
 })
 export class ListUsersComponent implements OnInit {
   mFakeData = fakeData;

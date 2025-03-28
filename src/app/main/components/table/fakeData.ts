@@ -73,7 +73,7 @@ export const fakeData: fakeDataI[] = [
     username: 'sofiahernandez92',
     email: 'sofia.hernandez@gmail.com',
   },
-  {
+  /* {
     id: 6,
     name: 'Andrés',
     lastName: 'Torres',
@@ -228,5 +228,5 @@ export const fakeData: fakeDataI[] = [
     department: 'Valle del Cauca',
     username: 'nicolassalas81',
     email: 'nicolas.salas@gmail.com',
-  },
+  }, */
 ];

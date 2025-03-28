@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  .pagers {
+    padding-left: 20px;
+    padding-right: 27px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: center;
+    gap: 24px;
+    list-style: none;
+  }
+  li {
+    cursor: pointer;
+  }
+  a {
+    font-size: 12px;
+  }
+
+  .currentPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #00a3e0;
+    width: 22.72px;
+    height: 22.72px;
+    text-align: center;
+    border-radius: 9999px;
+
+    a {
+      font-size: 12px;
+      color: #fff;
+    }
+  }
+}
+
+.left-arrows,
+.rigth-arrows {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+}

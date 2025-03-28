@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 0.5rem;
+  background-color: #fdffff;
 }
 
 table {
   background-color: #fdffff;
   width: 1160px;
   border-collapse: collapse;
-  border-radius: 0.5rem;
 
   th,
   td {
@@ -37,5 +38,57 @@ table {
     border-style: solid;
     border-bottom-width: 1px;
     border-color: #f8f6f6;
+  }
+}
+
+.pagers-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding-left: 27px;
+  padding-right: 100px;
+}
+.maxRow-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  p {
+    line-height: 15px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #4d4d4d;
+  }
+  .label-left {
+    padding-right: 10px;
+  }
+  .label-rigth {
+    padding-left: 10px;
+  }
+  select {
+    font-size: 10px;
+    line-height: 13px;
+    display: inline-flex;
+    padding: 6.229px 31.5px 3.604px 12.355px;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 6.047px;
+    border-bottom-right-radius: 6.047px;
+    border-bottom: 0.806px solid #00a3e0;
+    background: var(--color-white);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='5' viewBox='0 0 9 5' fill='none'%3E%3Cpath d='M4.61406 4.32591L8.37656 1.36914H0.851562L4.61406 4.32591Z' fill='%2300A3E0' stroke='%2300A3E0' stroke-width='1.20934' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat, repeat;
+    background-position: right 12.36px top 50%;
+    &:focus {
+      outline: 2px solid #00a3e0;
+    }
+    option {
+      line-height: 13px;
+      font-size: 10px;
+      font-weight: 400;
+      color: #072531;
+    }
   }
 }
