@@ -39,6 +39,15 @@
   </div>
   <div class="pagers">
     <ul>
+      <li *ngFor="let pager of pagers">
+        <a
+          [ngClass]="currentPage === pager ? 'currentPage' : ''"
+          (click)="setPager(pager)"
+          >{{ pager }}</a
+        >
+      </li>
+    </ul>
+    <!-- <ul>
       <li><a>1</a></li>
 
       <li>
@@ -47,7 +56,7 @@
       <li><a>3</a></li>
       <li>...</li>
       <li><a>4</a></li>
-    </ul>
+    </ul> -->
   </div>
   <div class="rigth-arrows">
     <div class="forward">

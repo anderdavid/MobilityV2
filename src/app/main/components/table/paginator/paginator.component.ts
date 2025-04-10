@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.scss',
 })
-export class Paginator {}
+export class Paginator {
+  @Output() page = new EventEmitter<number>();
+  currentPage: number = 1;
+  pagers: number[] = [1, 2];
+
+  setPager = (nextPage: number) => {
+    this.page.emit(nextPage);
+    this.currentPage = nextPage;
+  };
+}
