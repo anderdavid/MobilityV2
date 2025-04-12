@@ -17,7 +17,7 @@ export class Paginator implements OnInit {
   windowLength = 3;
   firstPages: number[] = [];
   lastPage: number = 0;
-  backDisable = false;
+  backDisable = true;
   nextDisable = false;
 
   ngOnInit(): void {
@@ -33,6 +33,16 @@ export class Paginator implements OnInit {
   forwardWindow = () => {
     console.log('forwardWindow()');
     if (!this.nextDisable) {
+      if (this.currentPage + 1 === this.lastPage) {
+        this.nextDisable = true;
+      }
+      if (this.currentPage > 1) {
+        this.backDisable = false;
+      }
+      if (this.currentPage === 1) {
+        this.backDisable = false;
+      }
+      this.setPager(this.currentPage + 1);
       this.window += 1;
       this.firstPages = this.pagers.slice(
         this.window,
@@ -41,8 +51,14 @@ export class Paginator implements OnInit {
     }
   };
   reverseWindow = () => {
-    console.log('reverseWindow()');
     if (!this.backDisable) {
+      if (this.currentPage - 1 === 1) {
+        this.backDisable = true;
+      }
+      if (this.currentPage - 1 < this.lastPage) {
+        this.nextDisable = false;
+      }
+      this.setPager(this.currentPage - 1);
       this.window -= 1;
       this.firstPages = this.pagers.slice(
         this.window,

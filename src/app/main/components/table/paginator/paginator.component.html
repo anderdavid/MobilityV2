@@ -10,7 +10,7 @@
       >
         <path
           d="M7.61606 13.6909L2.76953 8.84766L7.61606 4.00439M13.1549 13.6909L8.30842 8.84766L13.1549 4.0044"
-          stroke="#4d4d99"
+          [attr.stroke]="backDisable ? '#ebebeb' : ' #4d4d4d'"
           strokeWidth="1.38379"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -28,7 +28,7 @@
       >
         <path
           d="M10.9258 13.6909L6.07925 8.84766L10.9258 4.00439"
-          stroke="#4d4d99"
+          [attr.stroke]="backDisable ? '#ebebeb' : ' #4d4d4d'"
           strokeWidth="1.38379"
           strokeWidth="1.38379"
           strokeLinecap="round"
@@ -46,10 +46,14 @@
           >{{ pager }}</a
         >
       </li>
-      <p>...</p>
-      <li>
-        <a (click)="setPager(lastPage)">{{ lastPage }}</a>
-      </li>
+      <ng-container
+        *ngIf="currentPage < lastPage && lastPage - windowLength > window"
+      >
+        <p>...</p>
+        <li>
+          <a (click)="setPager(lastPage)">{{ lastPage }}</a>
+        </li>
+      </ng-container>
     </ul>
   </div>
   <div class="rigth-arrows">
@@ -63,7 +67,7 @@
       >
         <path
           d="M6.78906 3.65869L11.6356 8.50195L6.78906 13.3452"
-          stroke="#4d4d99"
+          [attr.stroke]="nextDisable ? '#ebebeb' : ' #4d4d4d'"
           strokeWidth="1.38379"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -81,7 +85,7 @@
       >
         <path
           d="M9.09944 4.00439L13.946 8.84766L9.09944 13.6909M3.56055 4.00439L8.40708 8.84766L3.56055 13.6909"
-          stroke="#4d4d99"
+          [attr.stroke]="nextDisable ? '#ebebeb' : ' #4d4d4d'"
           strokeWidth="1.38379"
           strokeLinecap="round"
           strokeLinejoin="round"
