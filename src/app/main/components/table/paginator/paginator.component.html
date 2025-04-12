@@ -18,7 +18,7 @@
       </svg>
     </div>
 
-    <div class="reverse">
+    <div class="reverse" (click)="reverseWindow()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16.6"
@@ -39,27 +39,21 @@
   </div>
   <div class="pagers">
     <ul>
-      <li *ngFor="let pager of pagers">
+      <li *ngFor="let pager of firstPages">
         <a
           [ngClass]="currentPage === pager ? 'currentPage' : ''"
           (click)="setPager(pager)"
           >{{ pager }}</a
         >
       </li>
-    </ul>
-    <!-- <ul>
-      <li><a>1</a></li>
-
+      <p>...</p>
       <li>
-        <div class="currentPage"><a>2</a></div>
+        <a (click)="setPager(lastPage)">{{ lastPage }}</a>
       </li>
-      <li><a>3</a></li>
-      <li>...</li>
-      <li><a>4</a></li>
-    </ul> -->
+    </ul>
   </div>
   <div class="rigth-arrows">
-    <div class="forward">
+    <div class="forward" (click)="forwardWindow()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16.6"

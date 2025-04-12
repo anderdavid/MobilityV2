@@ -19,6 +19,7 @@ export class TableComponent implements OnInit {
   groups: number = 0;
   maxRowByPage: number = 10;
   viewData: fakeDataI[] = [];
+  pagers: number[] = [];
 
   constructor() {}
   ngOnInit(): void {
@@ -45,6 +46,7 @@ export class TableComponent implements OnInit {
     if (groups * maxRow < rows) {
       groups += 1;
     }
+    this.createPagers(groups);
     const group: number = currentPage - 1;
 
     if (group < groups) {
@@ -56,6 +58,15 @@ export class TableComponent implements OnInit {
     }
 
     return { minRow, maxRow, groups };
+  };
+
+  createPagers = (groups: number) => {
+    this.pagers = [];
+    for (let i = 1; i <= groups; i++) {
+      this.pagers.push(i);
+    }
+
+    console.log('pagers', this.pagers);
   };
 
   handlePagers(page: number) {
