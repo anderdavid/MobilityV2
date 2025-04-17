@@ -13,6 +13,7 @@ import { ColumnI } from '../../main/components/table/table.interface';
 export class ListUsersComponent implements OnInit {
   mFakeData = fakeData;
   columns: ColumnI[] = [
+    { title: 'Id', data: 'id', width: '30px' },
     { title: 'Nombre', data: 'name', width: '160px' },
     { title: 'Apellido', data: 'lastName', width: '160px' },
     { title: 'Fecha de Nacimiento', data: 'dateOfBirth', width: '200px' },

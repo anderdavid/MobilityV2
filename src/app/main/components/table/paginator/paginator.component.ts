@@ -30,40 +30,74 @@ export class Paginator implements OnInit {
     this.currentPage = nextPage;
   };
 
+  validateDisable = () => {
+    if (this.currentPage > 1) {
+      this.backDisable = false;
+    } else {
+      this.backDisable = true;
+    }
+    if (this.currentPage < this.lastPage) {
+      this.nextDisable = false;
+    } else {
+      this.nextDisable = true;
+    }
+  };
+  setFirstPagers = () => {
+    console.log('setFirstPagers() window', this.window);
+    this.firstPages = this.pagers.slice(
+      this.window,
+      this.window + this.windowLength
+    );
+  };
+
+  handlePager = (page: number) => {
+    this.setPager(page);
+    this.validateDisable();
+    this.window = page - 1;
+    if (this.lastPage === page) {
+      this.setFirstPagers();
+    }
+  };
+
   forwardWindow = () => {
     console.log('forwardWindow()');
     if (!this.nextDisable) {
-      if (this.currentPage + 1 === this.lastPage) {
-        this.nextDisable = true;
-      }
-      if (this.currentPage > 1) {
-        this.backDisable = false;
-      }
-      if (this.currentPage === 1) {
-        this.backDisable = false;
-      }
       this.setPager(this.currentPage + 1);
       this.window += 1;
-      this.firstPages = this.pagers.slice(
-        this.window,
-        this.window + this.windowLength
-      );
+      this.validateDisable();
+      this.setFirstPagers();
     }
   };
   reverseWindow = () => {
     if (!this.backDisable) {
-      if (this.currentPage - 1 === 1) {
-        this.backDisable = true;
-      }
-      if (this.currentPage - 1 < this.lastPage) {
-        this.nextDisable = false;
-      }
       this.setPager(this.currentPage - 1);
       this.window -= 1;
-      this.firstPages = this.pagers.slice(
-        this.window,
-        this.window + this.windowLength
-      );
+      this.validateDisable();
+      this.setFirstPagers();
     }
+  };
+
+  handleGoFirstPage = () => {
+    this.window = 0;
+    this.setPager(1);
+    this.validateDisable();
+    this.setFirstPagers();
+  };
+
+  handleGoLastPage = () => {
+    if (this.nextDisable) {
+      return;
+    }
+    if (this.lastPage === 0) {
+      return;
+    }
+
+    this.window =
+      this.lastPage - this.windowLength > 0
+        ? this.lastPage - this.windowLength
+        : 0;
+    this.setPager(this.lastPage);
+    this.validateDisable();
+    this.setFirstPagers();
   };
 }

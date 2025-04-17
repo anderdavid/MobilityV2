@@ -1,6 +1,6 @@
 <div class="container">
   <div class="left-arrows">
-    <div class="goFirtsPage">
+    <div class="goFirtsPage" (click)="handleGoFirstPage()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16.6"
@@ -42,7 +42,7 @@
       <li *ngFor="let pager of firstPages">
         <a
           [ngClass]="currentPage === pager ? 'currentPage' : ''"
-          (click)="setPager(pager)"
+          (click)="handlePager(pager)"
           >{{ pager }}</a
         >
       </li>
@@ -51,7 +51,7 @@
       >
         <p>...</p>
         <li>
-          <a (click)="setPager(lastPage)">{{ lastPage }}</a>
+          <a (click)="handlePager(lastPage)">{{ lastPage }}</a>
         </li>
       </ng-container>
     </ul>
@@ -75,7 +75,7 @@
       </svg>
     </div>
 
-    <div class="goLastPage">
+    <div class="goLastPage" (click)="handleGoLastPage()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16.6"
