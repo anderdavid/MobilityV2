@@ -1,4 +1,12 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  OnInit,
+  OnChanges,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +16,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.scss',
 })
-export class Paginator implements OnInit {
+export class Paginator implements OnInit, OnChanges {
   @Output() page = new EventEmitter<number>();
   @Input() pagers: number[] = [];
 
@@ -21,9 +29,31 @@ export class Paginator implements OnInit {
   nextDisable = false;
 
   ngOnInit(): void {
-    this.firstPages = this.pagers.slice(this.window, this.windowLength);
-    this.lastPage = this.pagers[this.pagers.length - 1];
+    this.load();
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('onChanges()');
+    console.log('changes', changes);
+    if (
+      changes['pagers'].previousValue.length !=
+      changes['pagers'].currentValue.length
+    ) {
+      this.load();
+    }
+  }
+
+  load = () => {
+    this.currentPage = 1;
+    this.window = 0;
+
+    console.log('paginator pagers', this.pagers);
+    this.firstPages = this.pagers.slice(this.window, this.windowLength);
+    console.log('firstPages', this.firstPages);
+    this.lastPage = this.pagers[this.pagers.length - 1];
+    console.log('lastPage', this.lastPage);
+    this.setPager(this.currentPage);
+  };
 
   setPager = (nextPage: number) => {
     this.page.emit(nextPage);

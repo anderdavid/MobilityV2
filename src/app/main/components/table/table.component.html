@@ -27,14 +27,14 @@
   <div class="pagers-container">
     <div class="maxRow-selector">
       <p class="label-left">Mostrar</p>
-      <select name="row-select" id="row-select">
+      <select [(ngModel)]="maxRowByPage" (change)="onChangeRow()">
         <option value="3">3</option>
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="30">30</option>
       </select>
-      <p class="label-rigth">1 - 10 de 18</p>
+      <p class="label-rigth">{{ minRow }} - {{ maxRow }} de {{ rows }}</p>
     </div>
     <Paginator (page)="handlePagers($event)" [pagers]="pagers" />
   </div>
